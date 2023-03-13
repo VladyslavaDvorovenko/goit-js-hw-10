@@ -38,8 +38,8 @@ function onInput() {
       switch (err.message) {
         case '404': {
           Notiflix.Notify.failure('Oops, there is no country with that name');
-          countryInfo.innerHTML = '';
-          countryList.innerHTML = '';
+          countryInfoEl.innerHTML = '';
+          countryListEl.innerHTML = '';
           break;
         }
       }
