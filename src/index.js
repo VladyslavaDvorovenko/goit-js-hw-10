@@ -13,8 +13,8 @@ searchEl.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput() {
   if (!searchEl.value.trim()) {
-    countryInfo.innerHTML = '';
-    countryList.innerHTML = '';
+    countryInfoEl.innerHTML = '';
+    countryListEl.innerHTML = '';
     return;
   }
 
@@ -24,7 +24,7 @@ function onInput() {
         createCountryCard(countries);
         countryListEl.innerHTML = '';
       } else if (countries.length > 10) {
-        Notify.info(
+        Notiflix.Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
         countryListEl.innerHTML = '';
@@ -37,9 +37,9 @@ function onInput() {
     .catch(err => {
       switch (err.message) {
         case '404': {
-          Notify.failure('Oops, there is no country with that name');
-          countryInfo.innerHTML = '';
-          countryList.innerHTML = '';
+          Notiflix.Notify.failure('Oops, there is no country with that name');
+          countryInfoEl.innerHTML = '';
+          countryListEl.innerHTML = '';
           break;
         }
       }
